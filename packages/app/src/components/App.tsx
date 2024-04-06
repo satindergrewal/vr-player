@@ -72,8 +72,9 @@ export function App() {
 
       objectUrl = URL.createObjectURL(file);
       videoRef.current.src = objectUrl;
-      document.getElementById('dl8-content').classList.remove('hidden');
+      // @ts-expect-error: Object is possibly 'null'.
       document.getElementById('dl8-content').innerHTML = '';
+      // @ts-expect-error: Object is possibly 'null'.
       // prettier-ignore
       document.getElementById('dl8-content').innerHTML = `<dl8-video id="dl8video" format="STEREO_180_LR"><source id="dl8-source" type="video/mp4" src="${objectUrl}" /></dl8-video>`
       // console.log(objectUrl);
