@@ -33,9 +33,31 @@
     <meta property="og:type" content="website" />
 
     <meta name="git:commit" content="%REACT_APP_VERCEL_GIT_COMMIT_SHA%" />
+    <style type="text/css">
+        .vr-video {
+            width: 1200px !important;
+            height: 600px !important;
+            margin: 0 auto;
+        }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
+
+  <script src="js/dl8-0cdcc0da4cc33a2f1dec91273ca2439c172bcfde.js" async></script>
+  <script type="text/javascript">
+    onSessionStart() { //force play for visionOS if (this.isIpad) { // this.video.play();
+
+          const handlePaused = () => {
+              this.video.removeEventListener("pause", handlePaused);
+              this.video.play();
+          };
+
+          this.video.addEventListener("pause", handlePaused);
+
+
+      }
+  </script>
 </html>

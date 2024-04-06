@@ -25,7 +25,7 @@ export async function getImageFrames(
 
   const videoClone = document.createElement('video');
   videoClone.src = video.src;
-  videoClone.muted = true;
+  // videoClone.muted = true;
   videoClone.pause();
 
   const promises = timeStamps.map((timeStamp) => {
