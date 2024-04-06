@@ -29,11 +29,6 @@ const worker = wrap<VideoRecognitionWorker>(
 export function App() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const dl8Conent = document.getElementById("dl8-conent")
-  const dl8Source = document.getElementById("dl8-source")
-  const dl8Video = document.getElementById("dl8video")
-
-
   const [layout, setLayout] = useAtom(layoutAtom);
   const [flipLayout] = useAtom(flipLayoutAtom);
   const [format, setFormat] = useAtom(formatAtom);
@@ -77,11 +72,11 @@ export function App() {
 
       objectUrl = URL.createObjectURL(file);
       videoRef.current.src = objectUrl;
-      // document.getElementById("dl8-source").setAttribute("src", objectUrl);
-      dl8Source.setAttribute("src", objectUrl);
-      dl8Video.setAttribute("style", "position: relative; display: block; margin: 0px; padding: 0px; z-index: 0; width: 100%; height: 375px;");
-      dl8Conent.classList.remove("hidden");
-      console.log(objectUrl);
+      document.getElementById('dl8-content').classList.remove('hidden');
+      document.getElementById('dl8-content').innerHTML = '';
+      // prettier-ignore
+      document.getElementById('dl8-content').innerHTML = `<dl8-video id="dl8video" format="STEREO_180_LR"><source id="dl8-source" type="video/mp4" src="${objectUrl}" /></dl8-video>`
+      // console.log(objectUrl);
     }
 
     return () => {
@@ -136,9 +131,7 @@ export function App() {
       <div className="flex-1 overflow-auto py-4">
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <video
-          className={clsx('mx-auto shadow-lg rounded', [
-            ready ? 'h-0' : 'h-0',
-          ])}
+          className={clsx('mx-auto shadow-lg rounded h-0')}
           ref={videoRef}
           playsInline
           preload="auto"
@@ -147,11 +140,9 @@ export function App() {
           loop
           onLoadedData={() => setReady(true)}
         />
-        <div id="dl8-conent" class="vr-video hidden">
-          <dl8-video id="dl8video" format="STEREO_180_LR">
-            <source id="dl8-source" type="video/mp4" src="" />
-          </dl8-video>
-        </div>
+        {/* prettier-ignore */}
+        <div id="dl8-content" className={clsx('vr-video', [
+            ready ? 'h-full' : 'h-0'])}/>
         <div
           hidden={ready}
           className={clsx('h-full flex flex-col justify-center items-center', {

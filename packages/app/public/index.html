@@ -47,17 +47,4 @@
   </body>
 
   <script src="js/dl8-0cdcc0da4cc33a2f1dec91273ca2439c172bcfde.js" async></script>
-  <script type="text/javascript">
-    onSessionStart() { //force play for visionOS if (this.isIpad) { // this.video.play();
-
-          const handlePaused = () => {
-              this.video.removeEventListener("pause", handlePaused);
-              this.video.play();
-          };
-
-          this.video.addEventListener("pause", handlePaused);
-
-
-      }
-  </script>
 </html>
