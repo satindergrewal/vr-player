@@ -162,7 +162,7 @@ export function UI({ fileInputProps }: { fileInputProps: DropzoneInputProps }) {
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://github.com/TimoWilhelm/vr-player"
+        href="https://github.com/satindergrewal/vr-player"
         aria-label="View source on GitHub"
         className="flex m-2 py-2 px-2 text-sm font-medium text-white bg-gray-700 hover:bg-gray-600 border border-gray-600 rounded-lg shadow-sm"
       >
